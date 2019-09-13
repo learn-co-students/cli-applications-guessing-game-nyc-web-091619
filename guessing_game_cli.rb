@@ -1,28 +1,19 @@
-def generate_num
-rand(6) + 1
-end
-# generate_num
 
-def prompt_user
-puts "Type in a number between 1 and 6".chomp
-end
-# prompt_user
 
-def get_user_input
-gets.chomp()
+def prompt_user_and_get_input
+  puts "Type in a number between 1 and 6"
+  user_input = gets.chomp()
 end
-
 
 
 def run_guessing_game
-comp_value = generate_num()
-prompt_user()
-val = get_user_input()
-if val == "exit"
-puts "Goodbye!"
-elsif val.to_i == comp_value
-puts "You guessed the correct number!"
-else
-puts "Sorry! The computer guessed #{comp_value}."
-end
+  computer_value = rand(6) + 1
+  val = prompt_user_and_get_input()
+  if val.downcase == "exit"
+    puts "Goodbye!"
+  elsif val.to_i == computer_value
+    puts "You guessed the correct number!"
+  else
+    puts "Sorry! The computer guessed #{computer_value}."
+  end
 end
